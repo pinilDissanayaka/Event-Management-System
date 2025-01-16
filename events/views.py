@@ -9,7 +9,7 @@ def create_event(request):
     if request.method == 'POST':
         form = EventCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            print(form.cleaned_data)
             return HttpResponse("Event created successfully")
     else:
         form = EventCreationForm()
