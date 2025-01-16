@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{form}}
-    
-</body>
-</html>
+{% extends "events/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Forms</h5>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    {{ form | crispy }}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
