@@ -1,17 +1,24 @@
 {% extends "events/base.html" %}
 {% load crispy_forms_tags %}
 
+
+{% block title %}
+<title>Event Management - Create New Event</title>
+{% endblock title %}
+
+
 {% block content %}
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title fw-semibold mb-4">Forms</h5>
+        <h5 class="card-title fw-semibold mb-4">Create New Event</h5>
         <div class="card">
             <div class="card-body">
                 <form>
                     {{ form | crispy }}
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                 </form>
             </div>
         </div>
