@@ -16,4 +16,7 @@ class EventCreationForm(forms.ModelForm):
         cleaned_data = super().clean()
 
         return cleaned_data
+    
+
+
 
