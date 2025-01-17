@@ -24,14 +24,24 @@ def create_event(request):
     
 
 def update_event(request, id):
-    if request.method == "POST":
-        pass
-    else:
-        selected_event=Event.objects.filter(id=id).first()
+    selected_event=Event.objects.filter(id=id).first()
 
+    if request.method == "POST":
+        form = EventCreationForm(request.POST, instance=selected_event)
+        if form.is_valid():
+            form.save()
+            
+    else:
         if selected_event:
             return render(request, "events/event.html", {"event": selected_event})
         else:
             return redirect("create_event")
+        
+
+def delete_event(request, id):
+    if request.method == "POST":
+        event_to_delete=Event.objects.filter(id=id).first()
+        if event_to_delete:
+            event_to_delete.delete()
 
 
