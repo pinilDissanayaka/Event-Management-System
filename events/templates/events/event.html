@@ -12,7 +12,43 @@
         <div class="card">
             <div class="card-body">
                 <form method="POST">
-                    {{ event.id }}
+                    <div class="form-group">
+                        <label for="eventID">Event ID</label>
+                        <input type="text" class="form-control" id="eventID" value="{{ event.id}}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title</label>
+                        <input type="text" class="form-control" id="eventTitle" value="{{ event.title }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description</label>
+                        <textarea class="form-control" id="eventDescription" rows="9">{{ event.description }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDate">Event Date</label>
+                        <input type="date" class="form-control" id="eventDate" value="{{ event.date|date:'Y-m-d' }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventTime">Event Time</label>
+                        <input type="time" class="form-control" id="eventTime" value="{{ event.time|time:'H:i' }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventLocation">Event Location</label>
+                        <input type="text" class="form-control" id="eventLocation" value="{{ event.location }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventMaxParticipants">Max participants</label>
+                        <input type="number" class="form-control" id="eventMaxParticipants" value="{{ event.max_participants }}">
+                    </div>
+                    
+                    
+
                     <br>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
