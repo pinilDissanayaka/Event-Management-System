@@ -152,6 +152,8 @@
                         </a>
                     </li>
                 </ul>
+                {% block search %}
+                {% endblock search %}
                 <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                         <li class="nav-item dropdown">
@@ -193,6 +195,8 @@
     <script src="{% static '/js/sidebarmenu.js'%}"></script>
     <script src="{% static '/js/app.min.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 
 </html>

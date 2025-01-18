@@ -14,7 +14,7 @@
         <h5 class="card-title fw-semibold mb-4">Create New Event</h5>
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{% url 'create_event'%}"" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'create_event'%}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <br>
@@ -26,7 +26,7 @@
 
         {% if message %}
             <div class="alert alert-success" role="alert">
-                {{ message}}
+                {{ message }}
             </div>
         {% endif %}
     </div>

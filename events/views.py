@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import EventCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Event
@@ -57,5 +57,8 @@ def delete_event(request, id):
 def view_event(request, id):
     event=Event.objects.filter(id=id).first()
     return render(request, "events/view.html", {"event": event})
+
+
+
 
 
