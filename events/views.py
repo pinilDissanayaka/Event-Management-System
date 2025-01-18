@@ -11,7 +11,12 @@ def create_event(request):
     if request.method == 'POST':
         form = EventCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            event=form.save(commit=False)
+
+            event.created_by=request.user
+
+            form.save(commit=True)
+
             message="Event created successfully"
             return render(request, 'events/create.html', {'form': form,
                                                           "message":message})

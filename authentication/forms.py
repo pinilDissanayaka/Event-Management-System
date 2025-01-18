@@ -1,5 +1,8 @@
 from django import forms
 from .models import CustomUser
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+
 
 
 class UserCreationForm(forms.ModelForm):
@@ -21,4 +24,5 @@ class UserCreationForm(forms.ModelForm):
             raise forms.ValidationError("Password and confirmation password do not match")
         else:
             return cleaned_data
+    
         

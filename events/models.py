@@ -1,4 +1,5 @@
 from django.db import models
+from authentication.models import CustomUser
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.CharField(max_length=255)
-    #created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     max_participants = models.IntegerField(default=50)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
