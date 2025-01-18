@@ -21,3 +21,4 @@ class CustomUser(AbstractUser):
         help_text="Specific permissions for this user.",
         verbose_name="user permissions",
     )
+
