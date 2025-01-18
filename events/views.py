@@ -53,3 +53,9 @@ def delete_event(request, id):
             event_to_delete.delete()
 
 
+
+def view_event(request, id):
+    event=Event.objects.filter(id=id).first()
+    return render(request, "events/view.html", {"event": event})
+
+

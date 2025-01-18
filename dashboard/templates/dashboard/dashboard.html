@@ -23,7 +23,7 @@
           </div>
           <div class="card-body p-4">
             <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">Social</span>
-            <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">{{ event.title }}</a>
+            <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="{% url 'view_event' id=event.id %}">{{ event.title }}</a>
             <div class="d-flex align-items-center gap-4">
               <div class="d-flex align-items-center gap-2">
                 <i class="ti ti-eye text-dark fs-5"></i>9,125
