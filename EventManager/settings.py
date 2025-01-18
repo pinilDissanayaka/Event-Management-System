@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "events",
     "authentication",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # Optional: Location of your static source files
 STATIC_ROOT = BASE_DIR / 'staticfiles'   # Directory for collectstatic output
 
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -136,4 +140,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
+
+LOGIN_REDIRECT_URL = '/auth/login'
+
 

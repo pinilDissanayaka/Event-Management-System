@@ -8,6 +8,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateField()
     time = models.TimeField()
+    cover_image=models.ImageField(upload_to='event_images/', null=True, blank=True)
     location = models.CharField(max_length=255)
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     max_participants = models.IntegerField(default=50)

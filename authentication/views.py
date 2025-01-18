@@ -10,7 +10,7 @@ from .models import CustomUser
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect("create_event")
+        return redirect("dashboard")
     else:
         if request.method == "POST":
             username=request.POST.get("username")
@@ -18,11 +18,9 @@ def login_view(request):
 
             user=authenticate(request=request, username=username, password=password)
 
-            login(request)
-
             if user:
-                login(request)
-                return redirect("create_event")
+                login(request, user)
+                return redirect("dashboard")
             else:
                 return HttpResponse("LOGIN UNSUCCESSFUL")
         else:
@@ -31,7 +29,7 @@ def login_view(request):
 
 def register_view(request):
     if request.user.is_authenticated:
-        return redirect("create_event")
+        return redirect("dashboard")
     else:
         if request.method == "POST":
             form=UserCreationForm(request.POST)
@@ -47,7 +45,7 @@ def register_view(request):
 
                 if user:
                     login(request, user)
-                    return redirect("create_event")
+                    return redirect("dashboard")
                 else:
                     return HttpResponse("LOGIN UNSUCCESSFUL")
             else:
