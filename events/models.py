@@ -30,9 +30,13 @@ class Participant(models.Model):
     registered_at=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user    
+        return self.user.username  
     
+    @staticmethod
+    def is_registered(user, event):
+        return Participant.objects.filter(user=user, event=event)
 
+    
     class Meta:
         unique_together = ('event', 'user')
     

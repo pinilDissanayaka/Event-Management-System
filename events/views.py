@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .forms import EventCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Event
+from .models import Event, Participant
 
 
 # Create your views here.
@@ -57,6 +57,16 @@ def delete_event(request, id):
 def view_event(request, id):
     event=Event.objects.filter(id=id).first()
     return render(request, "events/view.html", {"event": event})
+
+
+def register_to_event(request, id):
+    participant=Participant.objects.create(
+        event=Event.objects.get(id=id),
+        user=request.user
+    )
+
+    return redirect("dashboard")
+    
 
 
 
