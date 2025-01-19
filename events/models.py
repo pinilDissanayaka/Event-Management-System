@@ -21,6 +21,8 @@ class Event(models.Model):
     def __str__(self):
         return self.title
     
+
+    @property
     def get_available_slots(self):
         return self.max_participants - self.participants.count()
     
@@ -34,7 +36,7 @@ class Participant(models.Model):
     
     @staticmethod
     def is_registered(user, event):
-        return Participant.objects.filter(user=user, event=event)
+        return Participant.objects.filter(user=user, event=event).exists()
 
     
     class Meta:

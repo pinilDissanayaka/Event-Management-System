@@ -22,7 +22,17 @@
                         <i class="ti ti-point text-dark"></i>{{ event.date}}
                     </div>
                 </div>
-                <h1>{{ event.title }}</h1>            
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>{{ event.title }}</h1> 
+                    <form action="{% url 'register_to_event' id=event.id%}" method="POST">
+                      {% csrf_token %}
+                      {% if event.is_registered %}
+                        <button type="submit" class="btn btn-secondary btn-lg" disabled>All Ready Registered</button>
+                      {% else %}
+                        <button type="submit" class="btn btn-secondary btn-lg" >Register</button>
+                      {% endif %}
+                    </form>
+                  </div>           
             </div>
         </div>
     </div>

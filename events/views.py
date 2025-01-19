@@ -56,6 +56,7 @@ def delete_event(request, id):
 
 def view_event(request, id):
     event=Event.objects.filter(id=id).first()
+    event.is_registered=Participant.is_registered(user=request.user, event=event)
     return render(request, "events/view.html", {"event": event})
 
 
@@ -66,6 +67,11 @@ def register_to_event(request, id):
     )
 
     return redirect("dashboard")
+
+
+def view_my_event(request):
+    events=Event.objects.filter(participants=request.user).all().order_by("-date")
+    return render(request, "events/myEvents.html", {"events": events})
     
 
 
